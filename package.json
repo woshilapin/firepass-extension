@@ -1,0 +1,6 @@
+{
+	"name": "firepassd",
+	"description": "Password Store server to use with Firefox Extension",
+	"version": "0.0.1",
+	"license": "GPL-3.0+"
+}
