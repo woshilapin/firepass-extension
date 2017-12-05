@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import gclean from 'gulp-clean';
-import gcopy from 'gulp-copy';
 import gzip from 'gulp-zip';
 import gsourcemaps from 'gulp-sourcemaps';
 import gwebpack from 'webpack-stream';
@@ -18,7 +17,7 @@ clean.description = 'Clean directory';
 
 export function manifest() {
 	return gulp.src('manifest.json')
-		.pipe(gcopy('dist/'));
+		.pipe(gulp.dest('dist/'));
 }
 manifest.description = "Copy over the manifest.json file";
 
