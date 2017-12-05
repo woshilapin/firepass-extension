@@ -20,6 +20,7 @@ export function manifest() {
 	return gulp.src('manifest.json')
 		.pipe(gcopy('dist/'));
 }
+manifest.description = "Copy over the manifest.json file";
 
 export function scripts() {
 	return gulp.src('src/firepass.js', {"since": gulp.lastRun(scripts)})
@@ -50,6 +51,7 @@ export function zip() {
 		.pipe(gzip('firepass-extension.zip'))
 		.pipe(gulp.dest('./'))
 }
+zip.description = "Create the ZIP for the extension";
 
 export let bundle = gulp.series(
 	clean,
