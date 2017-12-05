@@ -7,7 +7,7 @@ browser.browserAction.onClicked.addListener(() => {
 	console.log('SENDING');
 	console.log(message);
 	counter++;
-	browser.runtime.sendNativeMessage('firepassd', JSON.stringify(message)).then((response) => {
+	browser.runtime.sendNativeMessage('firepass', JSON.stringify(message)).then((response) => {
 		console.log('RECEIVED');
 		console.log(response);
 	}, (error) => {
