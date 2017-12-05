@@ -1,8 +1,12 @@
 {
 	"manifest_version": 2,
 	"name": "FirePass",
+	"short_name": "FirePass",
 	"version": "0.1",
 	"description": "Firefox Extension to use the standard Unix Password Manager (https://www.passwordstore.org/)",
+	"developer": {
+		"name": "woshilapin"
+	},
 	"icons": {
 		"48": "icons/key.svg"
 	},

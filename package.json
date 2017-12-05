@@ -2,5 +2,31 @@
 	"name": "firepassd",
 	"description": "Password Store server to use with Firefox Extension",
 	"version": "0.0.1",
-	"license": "GPL-3.0+"
+	"author": {
+		"name": "woshilapin",
+		"email": "woshilapin@tuziwo.info"
+	},
+	"scripts": {
+		"build": "gulp --gulpfile gulpfile.babel.js",
+		"watch": "gulp --gulpfile gulpfile.babel.js watch",
+		"bundle": "gulp --gulpfile gulpfile.babel.js bundle",
+		"clean": "rimraf dist/",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"license": "GPL-3.0+",
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.6.1",
+		"babel-register": "^6.26.0",
+		"eslint": "^4.12.1",
+		"gulp": "github:gulpjs/gulp#4.0",
+		"gulp-clean": "^0.3.2",
+		"gulp-copy": "^1.0.1",
+		"gulp-sourcemaps": "^2.6.1",
+		"gulp-zip": "^4.0.0",
+		"webpack": "^3.10.0",
+		"webpack-stream": "^4.0.0"
+	}
 }
