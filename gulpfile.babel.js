@@ -1,17 +1,15 @@
 import gulp from 'gulp';
-import gclean from 'gulp-clean';
 import gzip from 'gulp-zip';
 import gsourcemaps from 'gulp-sourcemaps';
 import gwebpack from 'webpack-stream';
 
+import del from 'del';
 import webpack from 'webpack';
 
 import webpackConfig from './webpack.config.js';
 
 export function clean() {
-	return gulp.src('dist/')
-		.pipe(gclean({force: true}))
-		.pipe(gulp.dest('dist/'));
+	return del([ 'dist/' ]);
 }
 clean.description = 'Clean directory';
 
@@ -20,6 +18,12 @@ export function manifest() {
 		.pipe(gulp.dest('dist/'));
 }
 manifest.description = "Copy over the manifest.json file";
+
+export function icons() {
+	return gulp.src('icons/key.svg')
+		.pipe(gulp.dest('dist/icons'));
+}
+icons.description = "Copy over the icon of the application";
 
 export function scripts() {
 	return gulp.src('src/firepass.js', {"since": gulp.lastRun(scripts)})
@@ -31,7 +35,9 @@ scripts.description = 'Generate Javascript';
 export let build = gulp.series(
 	clean,
 	gulp.parallel(
-		scripts
+		scripts,
+		manifest,
+		icons
 	)
 );
 build.description = 'Build the whole project';
@@ -54,10 +60,7 @@ zip.description = "Create the ZIP for the extension";
 
 export let bundle = gulp.series(
 	clean,
-	gulp.parallel(
-		scripts,
-		manifest
-	),
+	build,
 	zip
 );
 bundle.description = 'bundle the extension';
