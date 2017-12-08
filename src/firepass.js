@@ -1,5 +1,5 @@
 let counter = 0;
-browser.browserAction.onClicked.addListener(() => {
+browser.browserAction.onClicked.addListener(async () => {
 	let message = {
 		count: counter,
 		content: 'ping'
@@ -7,10 +7,11 @@ browser.browserAction.onClicked.addListener(() => {
 	console.log('SENDING');
 	console.log(message);
 	counter++;
-	browser.runtime.sendNativeMessage('firepass', JSON.stringify(message)).then((response) => {
+	try {
+		let response = await browser.runtime.sendNativeMessage('firepass', message);
 		console.log('RECEIVED');
 		console.log(response);
-	}, (error) => {
+	} catch(error) {
 		console.error('Error: ' + error);
-	})
+	}
 });
