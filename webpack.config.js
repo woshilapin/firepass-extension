@@ -5,6 +5,7 @@ export default {
 	"context": path.resolve(__dirname, 'src/'),
 	"entry": {
 		"firepass": './firepass.js',
+		"popup/popup": './popup/popup.js',
 	},
 	"output": {
 		"path": path.resolve(__dirname, 'dist/'),

@@ -14,16 +14,28 @@ export function clean() {
 clean.description = 'Clean directory';
 
 export function manifest() {
-	return gulp.src('manifest.json')
+	return gulp.src('manifest.json', {"since": gulp.lastRun(manifest)})
 		.pipe(gulp.dest('dist/'));
 }
-manifest.description = "Copy over the manifest.json file";
+manifest.description = 'Copy over the manifest.json file';
 
 export function icons() {
 	return gulp.src('icons/key.svg')
 		.pipe(gulp.dest('dist/icons'));
 }
-icons.description = "Copy over the icon of the application";
+icons.description = 'Copy over the icon of the application';
+
+export function views() {
+	return gulp.src('src/**/*.html', {"since": gulp.lastRun(views)})
+		.pipe(gulp.dest('dist/'));
+}
+views.description = 'Copy over the HTML files';
+
+export function styles() {
+	return gulp.src('src/**/*.css', {"since": gulp.lastRun(styles)})
+		.pipe(gulp.dest('dist/'));
+}
+styles.description = 'Copy over the CSS files';
 
 export function scripts() {
 	return gulp.src('src/firepass.js', {"since": gulp.lastRun(scripts)})
@@ -35,6 +47,8 @@ scripts.description = 'Generate Javascript';
 export let build = gulp.series(
 	clean,
 	gulp.parallel(
+		views,
+		styles,
 		scripts,
 		manifest,
 		icons
@@ -45,6 +59,9 @@ build.description = 'Build the whole project';
 export let watch = gulp.series(
 	build,
 	function watch() {
+		gulp.watch('manifest.json', manifest);
+		gulp.watch('src/**/*.html', views);
+		gulp.watch('src/**/*.css', styles);
 		webpackConfig.watch = true;
 		return scripts();
 	}
@@ -56,7 +73,7 @@ export function zip() {
 		.pipe(gzip('firepass-extension.zip'))
 		.pipe(gulp.dest('./'))
 }
-zip.description = "Create the ZIP for the extension";
+zip.description = 'Create the ZIP for the extension';
 
 export let bundle = gulp.series(
 	clean,
