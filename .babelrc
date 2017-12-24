@@ -2,5 +2,5 @@
 	"plugins": [
 		"transform-runtime"
 	],
-	"presets": ["env"]
+	"presets": ["env", "react"]
 }
