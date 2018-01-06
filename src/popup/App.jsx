@@ -1,26 +1,33 @@
 import React from 'react';
 
-	function getLeaf(path) {
-		let keys = Object.keys(path);
-		let results = [];
-		if(keys.length > 0) {
-			for(let key of keys) {
-				let result = getLeaf(path[key]);
-				if(result.length > 0) {
-					for(let r of result) {
-						results.push(`${key}.${r}`);
-					}
-				} else {
-					results.push(key);
-				}
+class File extends React.Component {
+	render() {
+		return <div className="file">
+			{this.props.name}
+		</div>;
+	}
+}
+class Folder extends React.Component {
+	render() {
+		let list = this.props.files.map((file) => {
+			if(file.type === 'file') {
+				return <li key={file.name}>
+					<File {...file} />
+				</li>;
+			} else if(file.type === 'folder') {
+				return <li key={file.name}>
+					<div className="folder">
+						{file.name}
+						<Folder files={file.files} />
+					</div>
+				</li>;
 			}
-		}
-		return results;
-	};
+		});
+		return <ul>{list}</ul>;
+	}
+}
 export default class App extends React.Component {
 	render() {
-		let keys = getLeaf(this.props.keys);
-		let list = keys.map((k) => <li key={k}>{k}</li>);
-		return <ul>{list}</ul>;
+		return <Folder files={this.props.logins} />;
 	};
 }
