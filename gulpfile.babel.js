@@ -1,11 +1,14 @@
 import gulp from 'gulp';
 import gzip from 'gulp-zip';
+import gpostcss from 'gulp-postcss';
 import gsourcemaps from 'gulp-sourcemaps';
 import gwebpack from 'webpack-stream';
 
 import del from 'del';
 import webpack from 'webpack';
+import postcssrc from 'postcss-load-config';
 
+import postcssConfig from './postcss.config.js';
 import webpackConfig from './webpack.config.js';
 
 export function clean() {
@@ -31,8 +34,12 @@ export function views() {
 }
 views.description = 'Copy over the HTML files';
 
-export function styles() {
+export async function styles() {
+	let config = Object.create(await postcssrc());
 	return gulp.src('src/**/*.css', {"since": gulp.lastRun(styles)})
+		.pipe(gsourcemaps.init())
+		.pipe(gpostcss(config.plugins, config.options))
+		.pipe(gsourcemaps.write('.'))
 		.pipe(gulp.dest('dist/'));
 }
 styles.description = 'Copy over the CSS files';
