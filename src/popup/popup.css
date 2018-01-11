@@ -1,9 +1,39 @@
 body {
-	width: 400px;
-	padding: 1em;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: sans-serif;
 }
 
-h1,
-h2 {
-	border-bottom: 1px solid;
+input#search {
+	width: 100%;
+	font-size: 125%;
+	height: 4ex;
+	outline: none;
+	outline-width: 0;
+	padding: 0.5ex;
+}
+
+.root {
+	padding-left: 0.5em;
+}
+
+.file {
+	padding-top: 1ex;
+	padding-bottom: 1ex;
+	border-top-style: solid;
+	border-top-color: gray(66%);
+	border-top-width: 1px;
+
+	&:nth-child(even) {
+		background: color(#201818 lightness(96%));
+	}
+
+	& .root {
+		color: gray(66%);
+	}
+
+	& .key {
+		font-weight: bolder;
+	}
 }
