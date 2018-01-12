@@ -43,6 +43,7 @@ input#search {
 
 .file::before {
 	content: '\1F512';
+	font-size: 50%;
 }
 
 .list.search .file {
