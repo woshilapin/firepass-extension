@@ -1,3 +1,8 @@
+:root {
+	--color: color(rgb(186, 0, 0) lightness(96%));
+	--lineColor: linear-gradient(to top right, white, var(--color));
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -18,16 +23,14 @@ input#search {
 	padding-left: 0.5em;
 }
 
+.folder,
 .file {
+	background: white;
 	padding-top: 1ex;
 	padding-bottom: 1ex;
 	border-top-style: solid;
 	border-top-color: gray(66%);
 	border-top-width: 1px;
-
-	&:nth-child(even) {
-		background: color(#201818 lightness(96%));
-	}
 
 	& .root {
 		color: gray(66%);
@@ -35,5 +38,29 @@ input#search {
 
 	& .key {
 		font-weight: bolder;
+	}
+}
+
+.file::before {
+	content: '\1F512';
+}
+
+.list.search .file {
+	&:nth-child(even) {
+		background: var(--lineColor);
+	}
+}
+
+.list.folder {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-left: -1em;
+
+	& .folderWrapper {
+		margin-left: 1em;
+
+		& .file {
+			background: var(--lineColor);
+		}
 	}
 }

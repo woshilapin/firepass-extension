@@ -20,8 +20,10 @@ export default class App extends React.Component {
 	}
 	render() {
 		let logins = <Folder root="" files={this.state.logins} />;
+		let classNames = ['list', 'folder'];
 		if (this.state.value) {
 			logins = <SearchResults pattern={this.state.value} files={this.state.logins} />;
+			classNames = ['list', 'search'];
 		}
 		return <div id="app">
 			<input
@@ -32,7 +34,9 @@ export default class App extends React.Component {
 				onChange={this.onChange}
 				value={this.state.value}
 			/>
-			{logins}
+			<div className={classNames.join(' ')}>
+				{logins}
+			</div>
 		</div>;
 	};
 }
