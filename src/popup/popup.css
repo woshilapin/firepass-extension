@@ -1,6 +1,6 @@
 :root {
-	--color: color(rgb(186, 0, 0) lightness(96%));
-	--lineColor: linear-gradient(to top right, white, var(--color));
+	--color: color(rgb(0, 0, 186) lightness(96%));
+	--lineColor: linear-gradient(to right, white, var(--color));
 }
 
 body {
