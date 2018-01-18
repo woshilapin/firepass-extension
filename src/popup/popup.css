@@ -1,5 +1,5 @@
 :root {
-	--color: color(rgb(0, 0, 186) lightness(96%));
+	--color: color(rgb(0, 0, 186) lightness(90%));
 	--lineColor: linear-gradient(to right, white, var(--color));
 }
 
@@ -38,6 +38,12 @@ input#search {
 
 	& .key {
 		font-weight: bolder;
+	}
+
+	& .login {
+		display: block;
+		font-size: 66%;
+		color: gray(66%);
 	}
 }
 
