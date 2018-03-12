@@ -12,22 +12,35 @@ export default class Folder extends React.Component {
 	render() {
 		let list = this.state.files.map((folder) => {
 			if(folder.type === 'file') {
-				return <div key={this.state.root+'.'+folder.name} className="folderWrapper">
-					<File
-						root={this.state.root}
-						{...folder}
-					/>
-				</div>;
+				return renderFile(this.state.root, folder);
 			} else if(folder.type === 'folder') {
-				let root = this.state.root + '/' + folder.name;
-				return <div key={root} className="folderWrapper">
-					<div className={folder.type}>
-						<span className="root">{folder.name}/</span>
-					</div>
-					<Folder root={root} files={folder.files} />
-				</div>;
+				return renderFolder(this.state.root, folder);
 			}
 		});
-		return list;
+		return <ul
+			className="component-folder">
+			{list}
+		</ul>;
 	}
+}
+
+let renderFile = (root, folder) => {
+	let key = root + '.' + folder.name;
+	return <li
+		key={key}>
+		<File
+			root={root}
+			{...folder}
+		/>
+	</li>;
+}
+
+let renderFolder = (root, folder) => {
+	let newRoot = root + '/' + folder.name;
+	return <li
+		key={root}
+		className={folder.type}>
+		<span className="name">{folder.name}/</span>
+		<Folder root={newRoot} files={folder.files} />
+	</li>;
 }

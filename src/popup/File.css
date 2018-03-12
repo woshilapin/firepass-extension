@@ -1,0 +1,16 @@
+.component-file {
+	& > .path {
+		& > .base {
+			color: gray(66%);
+		}
+
+		& > .name {
+			font-weight: bolder;
+		}
+	}
+
+	& > .login-url {
+		color: gray(66%);
+		font-size: 66%;
+	}
+}

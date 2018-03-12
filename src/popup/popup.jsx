@@ -37,6 +37,7 @@ if(storage.getItem('firepass')) {
 window.addEventListener('load', async () => {
 	try {
 		let logins = await getLogins();
+		console.log(logins);
 		let firepass = Object.assign({}, JSON.parse(storage.getItem('firepass')), {logins});
 		render(firepass);
 		await getAllMetadata(logins, '');

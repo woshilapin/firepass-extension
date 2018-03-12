@@ -1,0 +1,5 @@
+.component-folder {
+	& > li > span.name {
+		color: gray(66%);
+	}
+}

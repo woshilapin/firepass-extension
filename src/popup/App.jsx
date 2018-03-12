@@ -25,12 +25,12 @@ export default class App extends React.Component {
 			logins = <SearchResults pattern={this.state.value} files={this.state.logins} />;
 			classNames = ['list', 'search'];
 		}
-		return <div id="app">
+		return <div id="component-app">
 			<input
 				id="search"
 				type="search"
 				name="search"
-				placeholder="&#x1F50E;"
+				placeholder="search..."
 				onChange={this.onChange}
 				value={this.state.value}
 			/>
