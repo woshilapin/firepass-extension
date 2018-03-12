@@ -1,4 +1,6 @@
 .component-folder {
+	list-style: none;
+
 	& > li > span.name {
 		color: gray(66%);
 	}

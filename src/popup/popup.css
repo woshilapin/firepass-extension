@@ -4,6 +4,8 @@
 
 @import "File.css";
 
+@import "SearchResults.css";
+
 :root {
 	--color: gray(95%);
 	--lineColor: linear-gradient(to right, white, var(--color));

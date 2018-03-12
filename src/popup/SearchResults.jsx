@@ -28,7 +28,7 @@ export default class SearchResults extends React.Component {
 				/>
 			</li>;
 		});
-		return <ul id="component-search-results">{searchList}</ul>;
+		return <ul className="component-search-results">{searchList}</ul>;
 	}
 }
 
