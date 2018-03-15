@@ -36,11 +36,11 @@ let renderFile = (root, folder) => {
 }
 
 let renderFolder = (root, folder) => {
-	let newRoot = root + '/' + folder.name;
+	let key = root + '/' + folder.name;
 	return <li
-		key={root}
+		key={key}
 		className={folder.type}>
 		<span className="name">{folder.name}/</span>
-		<Folder root={newRoot} files={folder.files} />
+		<Folder root={key} files={folder.files} />
 	</li>;
 }

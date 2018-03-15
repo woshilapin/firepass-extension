@@ -1,7 +1,9 @@
-.component-folder {
+ul.component-folder {
 	list-style: none;
 
-	& > li > span.name {
-		color: gray(66%);
+	& > li {
+		& > span.name {
+			color: gray(66%);
+		}
 	}
 }
