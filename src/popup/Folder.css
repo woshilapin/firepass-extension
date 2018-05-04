@@ -1,9 +1,30 @@
+@import "configuration.css";
+
 ul.component-folder {
+	padding: 0;
 	list-style: none;
 
+	& .component-folder {
+		margin: 0;
+		padding: 0;
+		padding-left: calc(var(--horizontalNestingSpace) - var(--horizontalSpacing));
+	}
+
 	& > li {
-		& > span.name {
-			color: gray(66%);
+		margin: 0;
+		padding: 0;
+
+		& > .name {
+			margin: 0;
+			padding: 0;
+			color: var(--fontColorSecondary);
+			padding-top: calc(var(--verticalSpacing) / 2);
+			padding-bottom: calc(var(--verticalSpacing) / 2);
+
+			&::before {
+				padding-right: var(--horizontalSpacing);
+				content: url(icons/folder-16.svg);
+			}
 		}
 	}
 }

@@ -1,3 +1,7 @@
+@import "configuration.css";
+
 .component-search-results {
+	margin: var(--horizontalSpacing);
+	padding: 0;
 	list-style: none;
 }

@@ -40,7 +40,7 @@ let renderFolder = (root, folder) => {
 	return <li
 		key={key}
 		className={folder.type}>
-		<span className="name">{folder.name}/</span>
+		<div className="name">/{folder.name}</div>
 		<Folder root={key} files={folder.files} />
 	</li>;
 }

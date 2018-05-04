@@ -1,16 +1,33 @@
+@import "configuration.css";
+
 .component-file {
+	margin: 0;
+	padding: 0;
+
+	&:hover {
+		background-color: var(--backgroundColorSecondary);
+		background-clip: padding-box;
+	}
+
 	& > .path {
-		& > .base {
-			color: gray(66%);
+		margin: 0;
+		padding: 0;
+		padding: var(--horizontalSpacing);
+		padding-top: calc(var(--verticalSpacing) / 2);
+		padding-bottom: calc(var(--verticalSpacing) / 2);
+
+		&::before {
+			content: url(icons/login-16.svg);
+			padding-right: var(--horizontalSpacing);
 		}
 
-		& > .name {
-			font-weight: bolder;
+		& > .base {
+			color: var(--fontColorSecondary);
 		}
 	}
 
 	& > .login-url {
-		color: gray(66%);
-		font-size: 66%;
+		color: var(--fontColorSecondary);
+		font-size: var(--fontSizeSmall);
 	}
 }

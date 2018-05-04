@@ -12,6 +12,12 @@ module.exports = (context) => ({
 		"postcss-url": {},
 		// To use variables in CSS
 		"postcss-custom-properties": {},
+		// To use calc() with custom properties
+		"postcss-calc": {
+			"preserve": true,
+			"mediaQueries": true,
+			"selector": true,
+		},
 		// To have the 'gray()' function in CSS
 		"postcss-color-gray": {},
 		// Include neet function to create colors

@@ -1,0 +1,14 @@
+:root {
+	--fontSize: 15px;
+	--fontSizeSmall: 13px;
+	--backgroundColor: color(#38383D);
+	--backgroundColorSecondary: color(#4A4A4F);
+	--fontColor: white;
+	--fontColorSecondary: color(#F9F9FA);
+	--verticalSpacing: 4px;
+	--horizontalSpacing: 8px;
+	--horizontalNestingSpace: calc(3 * var(--horizontalSpacing));
+	--inputBorderColor: color(gray(10%) alpha(30%));
+	--inputHoverBorderColor: color(gray(10%) alpha(50%));
+	--inputFocusBorderColor: color(#0A84FF);
+}

@@ -23,10 +23,16 @@ export function manifest() {
 manifest.description = 'Copy over the manifest.json file';
 
 export function icons() {
-	return gulp.src('icons/key.svg')
+	return gulp.src('icons/login-16.svg')
 		.pipe(gulp.dest('dist/icons'));
 }
 icons.description = 'Copy over the icon of the application';
+
+export function popupIcons() {
+	return gulp.src('src/popup/icons/*.svg')
+		.pipe(gulp.dest('dist/popup/icons'));
+}
+popupIcons.description = 'Copy over the icons for the popup';
 
 export function views() {
 	return gulp.src('src/**/*.html', {"since": gulp.lastRun(views)})
@@ -58,7 +64,8 @@ export let build = gulp.series(
 		styles,
 		scripts,
 		manifest,
-		icons
+		icons,
+		popupIcons,
 	)
 );
 build.description = 'Build the whole project';

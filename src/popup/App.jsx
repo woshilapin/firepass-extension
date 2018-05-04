@@ -30,7 +30,7 @@ export default class App extends React.Component {
 				id="search"
 				type="search"
 				name="search"
-				placeholder="search..."
+				placeholder="Search for credentials..."
 				onChange={this.onChange}
 				value={this.state.value}
 			/>
